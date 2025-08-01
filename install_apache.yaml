@@ -1,0 +1,26 @@
+---
+- name: Install HTTPD package
+  hosts: all
+  tasks:
+    - name: Task 1 - install httpd package
+      ansible.builtin.dnf:
+        name: httpd
+        state: latest
+
+    - name: Task 2 - enable & start up httpd service
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: true 
+
+    - name: Task 3 - Allow traffic to service httpd 
+      ansible.posix.firewalld:
+        service: "{{ item }}"
+        state: enabled
+        zone: public
+        permanent: true
+        immediate: true
+      loop:
+        - https
+        - http
+    
