@@ -1,0 +1,34 @@
+---
+- name: Harden SSH server with loop
+  hosts: all
+  become: yes
+  vars:
+    port: 2022
+  tasks: 
+    - name: Harden ssh settings
+      ansible.builtin.lineinfile:
+        state: present
+        dest: /etc/ssh/sshd_config
+        line: Port {{ port }}
+        regexp: (?i)^#?port
+        validate: /usr/sbin/sshd -tf %s
+      notify: restart sshd
+    
+    - name: Allow sshd to listen on tcp port 
+      community.general.seport:
+        ports: "{{ port }}"
+        proto: tcp
+        setype: ssh_port_t
+        state: present  
+        
+    - name: Permit traffic in public zone on port 2022/tcp
+      ansible.posix.firewalld:
+        port: "{{ port }}/tcp"
+        permanent: true
+        immediate: true
+        state: enabled     
+  handlers:
+    - name: restart sshd
+      ansible.builtin.service:
+        name: sshd
+        state: restarted
