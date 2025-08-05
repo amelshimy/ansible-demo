@@ -10,7 +10,7 @@
   tasks:
     - name: Task 1 - Create user through vairables 
       ansible.builtin.user:
-        name: "{{ username | default('admin01') }}
+        name: "{{ username | default('admin01') }}"
         uid: "{{ uid | default('1001') }}"
         shell: /bin/bash
         groups: 
