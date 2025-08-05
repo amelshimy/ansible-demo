@@ -21,7 +21,10 @@
     sshd_config_lines:
       - regexp: ^#?PermitEmptyPasswords
         line: PermitEmptyPasswords no
-                      
+
+      - regexp: ^#?PasswordAuthentication
+        line: PasswordAuthentication yes
+        
       - regexp: (?i)^#?port
         line: Port 2022
                       
@@ -73,7 +76,7 @@
         cmd: "semanage port -a -t ssh_port_t -p tcp {{ port }}"
       ignore_errors: true
       
-    - name: Permit traffic in public zone on port 2022/tcp
+    - name: Permit traffic in public zone on port {{ port }}/tcp
       ansible.posix.firewalld:
         port: "{{ port }}/tcp"
         permanent: true
