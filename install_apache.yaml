@@ -8,13 +8,18 @@
         name: httpd
         state: latest
 
-    - name: Task 2 - enable & start up httpd service
+    - name: Task 2 - Create index.html file
+      ansible.builtin.copy:
+        content: "Welcome to {{ ansible_hostname }} server!"
+        dest: /var/www/html/index.html
+
+    - name: Task 3 - enable & start up httpd service
       ansible.builtin.service:
         name: httpd
         state: started
         enabled: true 
 
-    - name: Task 3 - Allow traffic to service httpd 
+    - name: Task 4 - Allow traffic to service httpd 
       ansible.posix.firewalld:
         service: "{{ item }}"
         state: enabled
