@@ -10,7 +10,7 @@
 
     - name: Task 2 - Create index.html file
       ansible.builtin.copy:
-        content: "Welcome to {{ ansible_hostname }} server!"
+        content: "Welcome to {{ ansible_hostname }} server!\n"
         dest: /var/www/html/index.html
 
     - name: Task 3 - enable & start up httpd service
