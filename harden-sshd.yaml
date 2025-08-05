@@ -1,7 +1,7 @@
 ---
 - name: Harden SSH server with loop
-  hosts: all
-  become: yes
+  #hosts: all
+  #become: yes
   vars:
     port: 2022
     sshd_logon_banner: |
