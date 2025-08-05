@@ -1,0 +1,19 @@
+{
+  "git.ignoreLegacyWarning": true,
+  "terminal.integrated.experimentalRefreshOnResume": true,
+  "window.menuBarVisibility": "visible",
+  "editor.fontSize": 18,
+  "window.zoomLevel": 1.5,
+  "terminal.integrated.fontSize": 20,
+  "git.enableSmartCommit": true,
+  "workbench.tips.enabled": false,
+  "workbench.startupEditor": "readme",
+  "telemetry.enableTelemetry": false,
+  "search.smartCase": true,
+  "git.confirmSync": false,
+  "workbench.colorTheme": "Visual Studio Dark",
+  "ansible.ansibleLint.enabled": false,
+  "ansible.ansible.useFullyQualifiedCollectionNames": true,
+  "files.associations": {
+      "*.yml": "ansible"
+  }}
