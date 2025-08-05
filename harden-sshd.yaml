@@ -22,8 +22,8 @@
       - regexp: ^#?PermitEmptyPasswords
         line: PermitEmptyPasswords no
                       
-      - regexp: (?i)^#?protocol
-        line: Protocol 2022
+      - regexp: (?i)^#?port
+        line: Port 2022
                       
       - regexp: (?i)^#?x11forwarding
         line: X11Forwarding yes
