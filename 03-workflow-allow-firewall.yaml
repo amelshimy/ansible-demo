@@ -1,5 +1,5 @@
 ---
-- name: Install Apache package 
+- name: Permit traffic through firewall
   hosts: rhel8
   become: true
   tasks:
