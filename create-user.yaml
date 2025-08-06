@@ -1,6 +1,6 @@
 ---
 - name: Create user Ansible
-  hosts: all
+  hosts: rhel8
   become: true
   tasks:
     - name: Task 1 - Create group Admins
