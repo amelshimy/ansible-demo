@@ -1,0 +1,14 @@
+---
+- name: Revert installation 
+  hosts: rhel8
+  become: true
+  tasks:
+    - name: Task - Remove installed package
+      ansible.builtin.dnf:
+        name: httpd
+        state: absent
+
+    - name: Task - Remove allowed services
+      ansible.posix.firewalld:
+        service: "{{ item }}"
+        state: absent        
