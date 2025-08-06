@@ -1,6 +1,6 @@
 ---
 - name: Harden SSH server with loop
-  hosts: all
+  hosts: rhel8
   become: yes
   vars:
     port: 2022
