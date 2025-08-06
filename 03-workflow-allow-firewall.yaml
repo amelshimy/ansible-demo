@@ -1,0 +1,14 @@
+---
+- name: Install Apache package 
+  hosts: rhel8
+  become: true
+  tasks:
+    - name: Task 3 - allow traffic in firewall
+      ansible.posix.firewalld:
+        service: "{{ item }}"
+        state: enabled
+        permanent: true
+        immediate: true
+      loop:
+        - http
+        - https
