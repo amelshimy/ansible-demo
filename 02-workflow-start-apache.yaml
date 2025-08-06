@@ -1,5 +1,5 @@
 ---
-- name: Install Apache package 
+- name: Enable & Startup Apache service 
   hosts: rhel8
   become: true
   tasks:
