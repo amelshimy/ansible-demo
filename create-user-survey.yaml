@@ -1,6 +1,6 @@
 ---
 - name: Create user through variable
-  hosts: rhel8
+  hosts: all
   become: true
   vars:
     username: 
