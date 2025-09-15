@@ -1,6 +1,6 @@
 ---
 - name: Revert installation 
-  hosts: rhel8
+  hosts: all
   become: true
   tasks:
     - name: Task - Remove installed package
