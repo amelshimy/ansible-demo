@@ -1,9 +1,9 @@
 ---
 - name: Harden SSH server with loop
-  hosts: rhel8
+  hosts: all
   become: yes
   vars:
-    port: 2022
+    port: 22
     sshd_logon_banner: |
       ###############################################################################
       #                   ___    _   _______ ________  __    ______                 #
@@ -26,7 +26,7 @@
         line: PasswordAuthentication yes
         
       - regexp: (?i)^#?port
-        line: Port 2022
+        line: Port 22
                       
       - regexp: (?i)^#?x11forwarding
         line: X11Forwarding yes
