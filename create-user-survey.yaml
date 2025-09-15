@@ -14,7 +14,7 @@
         uid: "{{ uid | default('1001') }}"
         shell: /bin/bash
         groups: 
-          - admins
+          #- admins
           - wheel
         append: yes
         password: "{{ password | default('redhat123') | password_hash('sha512') }}"
