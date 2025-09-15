@@ -1,6 +1,6 @@
 ---
 - name: Permit traffic through firewall
-  hosts: rhel8
+  hosts: all
   become: true
   tasks:
     - name: Task 3 - allow traffic in firewall
