@@ -1,6 +1,6 @@
 ---
 - name: Enable & Startup Apache service 
-  hosts: rhel8
+  hosts: all
   become: true
   tasks:
     - name: task 2 - enable & start apache service
