@@ -12,7 +12,7 @@
       ansible.posix.firewalld:
         service: "{{ item }}"
         state: absent
-        target: drop
+        target: public
         zone: public
       loop:
         - http
