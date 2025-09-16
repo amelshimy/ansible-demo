@@ -1,0 +1,12 @@
+---
+name: Update operating system
+hosts: all
+become: true 
+tasks: 
+  - name: task1 - Update OS
+    ansible.builtin.dnf:
+      name: "*"
+      state: latest
+  - name: Reboot a slow machine that might have lots of updates to apply
+    ansible.builtin.reboot:
+      reboot_timeout: 120    
