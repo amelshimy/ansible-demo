@@ -4,6 +4,8 @@
   become: true
   tasks:
     - name: Task 3 - allow traffic in firewall
+      vars:
+        ansible_python_interpreter: "/usr/bin/python3"
       ansible.posix.firewalld:
         service: "{{ item }}"
         state: enabled
