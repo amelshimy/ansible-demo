@@ -12,8 +12,8 @@
       ansible.posix.firewalld:
         service: "{{ item }}"
         state: disabled
-        #target: public
-        #zone: public
+        target: public
+        zone: public
       loop:
         - http
         - https
