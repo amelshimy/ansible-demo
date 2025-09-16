@@ -11,9 +11,9 @@
     - name: Task - Remove allowed services
       ansible.posix.firewalld:
         service: "{{ item }}"
-        state: absent
-        target: public
-        zone: public
+        state: disabled
+        #target: public
+        #zone: public
       loop:
         - http
         - https
