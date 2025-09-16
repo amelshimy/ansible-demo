@@ -5,10 +5,10 @@
   tasks:
     - name: Task 3 - allow traffic in firewall
       ansible.posix.firewalld:
-        service: "{{ item }}"
+        service: http
         state: enabled
         permanent: true
         immediate: true
-      loop:
-        - http
-        - https
+      #loop:
+      #  - http
+      #  - https
