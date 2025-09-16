@@ -7,6 +7,6 @@
       ansible.builtin.dnf:
         name: "*"
         state: latest
-    - name: Reboot a slow machine that might have lots of updates to apply
+    - name: task2 - Reboot the VMs and wait 120s to boot up.
       ansible.builtin.reboot:
         reboot_timeout: 120    
