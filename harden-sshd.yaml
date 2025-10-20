@@ -3,7 +3,7 @@
   hosts: "{{ rhel_inventory_group | default(all) }}"
   become: yes
   vars:
-    port: 22
+    ssh_port: 22
     sshd_logon_banner: |
       ###############################################################################
       #                   ___    _   _______ ________  __    ______                 #
@@ -78,7 +78,7 @@
       
     - name: Permit traffic in public zone on port {{ port }}/tcp
       ansible.posix.firewalld:
-        port: "{{ port }}/tcp"
+        port: "{{ ssh_port }}/tcp"
         permanent: true
         immediate: true
         state: enabled     
