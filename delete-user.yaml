@@ -8,7 +8,7 @@
         name: ansible
         state: absent
         
-    - name: Task 2 - Create group Admins
+    - name: Task 2 - Delete group Admins
       ansible.builtin.group:
         name: admins
         state: absent
