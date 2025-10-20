@@ -1,6 +1,6 @@
 ---
 - name: Permit traffic through firewall
-  hosts: all
+  hosts: "{{ rhel_inventory_group | default(all) }}"
   become: true
   tasks:
     - name: Task 3 - allow traffic in firewall
