@@ -1,6 +1,6 @@
 ---
 - name: Create user through variable
-  hosts: all
+  hosts: "{{ rhel_inventory_group | default(all) }}"
   become: true
   vars:
     username: 
