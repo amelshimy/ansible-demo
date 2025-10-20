@@ -1,0 +1,19 @@
+---
+- name: Delete user Ansible
+  hosts: "{{ rhel_inventory_group | default(all) }}"
+  become: true
+  tasks:
+    - name: Task 1 - Delete user ansible
+      ansible.builtin.user:
+        name: ansible
+        state: absent
+        
+    - name: Task 2 - Create group Admins
+      ansible.builtin.group:
+        name: admins
+        state: absent
+
+        
+        
+        
+        
