@@ -1,6 +1,6 @@
 ---
 - name: Update operating system
-  hosts: all
+  hosts: "{{ rhel_inventory_group | default(all) }}"
   become: true 
   tasks: 
     - name: task1 - Update OS
