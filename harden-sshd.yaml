@@ -1,6 +1,6 @@
 ---
 - name: Harden SSH server with loop
-  hosts: all
+  hosts: "{{ rhel_inventory_group | default(all) }}"
   become: yes
   vars:
     port: 22
