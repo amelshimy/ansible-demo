@@ -5,6 +5,6 @@
   tasks:
     - name: task 2 - enable & start apache service
       ansible.builtin.service:
-        name: http
+        name: httpd
         state: started
         enabled: true
