@@ -3,7 +3,7 @@
   hosts: "{{ rhel_inventory_group | default(all) }}"
   become: true 
   tasks: 
-    - name: task1 - Update OS
+    - name: Update packages on RedHat/Centos
       ansible.builtin.dnf:
         name: "*"
         state: latest
@@ -15,6 +15,6 @@
         state: latest
       when: ansible_facts['os_family'] == "Debian"
       
-    - name: task2 - Reboot the VMs and wait 120s to boot up.
+    - name: Reboot the VMs and wait 120s to boot up.
       ansible.builtin.reboot:
         reboot_timeout: 120    
