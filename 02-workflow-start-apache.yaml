@@ -5,6 +5,9 @@
   tasks:
     - name: task 2 - enable & start apache service
       ansible.builtin.service:
-        name: httpd
+        name: "{{ item }}"
         state: started
         enabled: true
+      loop: 
+        - httpd
+        - firewalld
