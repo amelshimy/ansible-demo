@@ -1,0 +1,34 @@
+---
+- name: Display managed hosts facts
+  hosts: "{{ rhel_inventory_group | default(all) }}"
+  become: false
+  gather_facts: true
+  tasks:
+    #- name: Tarea 1: Modulo setup 
+     # ansible.builtin.setup:
+      #register: facts
+
+    - name: Dump facts
+      ansible.builtin.debug:
+        var: ansible_facts
+        
+
+    - name: Mostrar datos especificos 
+      ansible.builtin.debug:
+        msg: > # |
+          The default IPv4 address of {{ ansible_facts['fqdn'] }} 
+          is {{ ansible_facts['default_ipv4']['address'] }}
+
+    - name: Collect only hardware facts
+      ansible.builtin.setup:
+        gather_subset:
+          - '!all'
+          - '!min'
+          - '!network'
+          - '!mounts'
+      register: facts
+
+    - name: Mostrar datos de los hechos 
+      ansible.builtin.debug:
+        msg: Tha facts are {{ facts }}
+          
