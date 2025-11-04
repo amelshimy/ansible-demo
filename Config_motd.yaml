@@ -1,0 +1,10 @@
+---
+- name: Configure massage of the day to OS
+  hosts: "{{ rhel_inventory_group | default(all) }}"
+  become: true 
+  tasks: 
+    - name: Update MOTD from Jinja2 Template
+      ansible.builtin.template:
+        src: motd.j2
+        dest: /etc/motd
+        
