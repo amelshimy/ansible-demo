@@ -8,27 +8,27 @@
      # ansible.builtin.setup:
       #register: facts
 
-    - name: Dump facts
+    - name: Display all variables
       ansible.builtin.debug:
         var: ansible_facts
         
 
-    - name: Mostrar datos especificos 
+    - name: Display specific variables  
       ansible.builtin.debug:
         msg: > # |
           The default IPv4 address of {{ ansible_facts['fqdn'] }} 
           is {{ ansible_facts['default_ipv4']['address'] }}
 
-    - name: Collect only hardware facts
+    - name: Collect hardware specific group
       ansible.builtin.setup:
         gather_subset:
           - '!all'
-          - 'min'
-          - '!network'
+          - '!min'
+          - 'network'
           - '!mounts'
       register: facts
 
-    - name: Mostrar datos de los hechos 
+    - name: Display hardware specific group
       ansible.builtin.debug:
         msg: Tha facts are {{ facts }}
           
