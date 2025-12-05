@@ -1,6 +1,6 @@
 ---
 - name: Enable & Startup Apache service 
-  hosts: node* # "{{ rhel_inventory_group | default(all) }}"
+  hosts: "{{ rhel_inventory_group | default(all) }}"
   become: true
   tasks:
     - name: task 2 - enable & start apache service
